@@ -39,10 +39,9 @@ void Whitelist::Parser(std::vector<std::vector<int>> &possibleTasks) {
         } else {
             QString text = ui->tableWidget->item(student, 1)->text();
             for (int it = 0; it < text.size(); it++) {
-                if (text[it] >= '0' && text[it] <= '9') {
+                if (text[it].isDigit()) {
                     int number = 0;
-                    while (it < text.size() && text[it] >= '0' &&
-                           text[it] <= '9') {
+                    while (it < text.size() && text[it].isDigit()) {
                         number *= 10;
                         number += text[it].digitValue();
                         it++;
