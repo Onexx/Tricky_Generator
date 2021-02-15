@@ -30,7 +30,6 @@ Whitelist::Whitelist(QWidget *parent, int studentsAmount_, int tasksAmount_)
 }
 
 void Whitelist::Parser(std::vector<std::vector<int>> &possibleTasks) {
-    // TODO
     for (int student = 0; student < studentsAmount; student++) {
         if (ui->tableWidget->item(student, 1)->text() == "Все") {
             for (int task = 1; task <= tasksAmount; task++) {
@@ -55,11 +54,12 @@ void Whitelist::Parser(std::vector<std::vector<int>> &possibleTasks) {
 
 void Whitelist::Next() {
     std::vector<std::vector<int>> possibleTasks(studentsAmount);
-    CellClicked(0, 1);  // TODO
+    CellClicked(0, 1);
     Parser(possibleTasks);
     generator->possibleTasks = possibleTasks;
     generator->tasksAmount = tasksAmount;
-    generator->showMaximized();  // TODO
+    generator->showMaximized();
+    generator->background->play();
     this->hide();
 }
 
